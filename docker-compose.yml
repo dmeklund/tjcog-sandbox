@@ -1,0 +1,58 @@
+version: '3.5'
+
+services:
+
+  #Node Script
+  node-tjcog:
+    image: node:11
+    container_name: node-tjcog
+    working_dir: /var/www
+    restart: unless-stopped
+    tty: true
+#    command: >
+#      sh -c "npm install
+#      && npm run ${NODE_ENV:-dev}"
+    ports:
+      - 3000:${NODE_PORT:-3000}
+    volumes:
+      - ./:/var/www
+      - ./.npm:/.npm
+    networks:
+      gateway:
+        ipv4_address: ${NODE_PROXY_IP:-172.28.1.5}
+
+  #Nginx Service
+  web-tjcog:
+    image: nginx:alpine
+#    image: jwilder/nginx-proxy
+    container_name: web-tjcog
+    restart: unless-stopped
+#    tty: true
+    ports:
+      - 80:80
+#      - 443:443
+      - 9000:9000
+    volumes:
+      - ./:/var/www
+      - ./environment/docker/nginx/conf.d/:/etc/nginx/conf.d/
+#      - /var/run/docker.sock:/tmp/docker.sock:ro
+#      - ./environment/docker/nginx/certs:/etc/nginx/certs
+#      - ./environment/docker/nginx/logs:/var/log
+    networks:
+      gateway:
+        ipv4_address: ${WEB_PROXY_IP:-172.28.1.1}
+
+#Docker Networks
+networks:
+  gateway:
+    driver: bridge
+    name: tjcog
+    ipam:
+      driver: default
+      config:
+        - subnet: ${PROXY_IP_RANGE:-172.28.0.0/16}
+
+#Local Volumes
+volumes:
+  dbdata:
+    driver: local
