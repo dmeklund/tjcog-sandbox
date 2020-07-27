@@ -3,7 +3,7 @@ import {Col, Container, Row} from "react-bootstrap";
 
 export default () => (
     <Container>
-        <div class="card" style={{width: "100%"}}>
+        {/* <div class="card" style={{width: "100%"}}>
             <div class="card-body">
                 <h3 class="card-title">Affordable Housing 101</h3>
                 <p className="card-text">
@@ -21,6 +21,6 @@ export default () => (
                     </Row>
                 </p>
             </div>
-        </div>
+        </div> */}
     </Container>
 );

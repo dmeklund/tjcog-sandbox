@@ -4,6 +4,7 @@ import './App.css';
 import Layout from "./components/layout";
 import About from "./pages/about";
 import Housing from "./pages/housing101"
+import CardDemo from "./pages/cardDemo";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
         <Router>
             <Housing path="/"/>
             <About path="/about"/>
+            <CardDemo path="/carddemo"/>
         </Router>
       </Layout>
   );

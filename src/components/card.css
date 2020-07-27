@@ -1,0 +1,31 @@
+.card{
+    border: 3px solid green !important;
+}
+
+/* .card-body{
+    background-color: #F0F0F0;
+    border: 3px solid green;
+    margin-left: 80px;
+    margin-right: 80px;
+} */
+
+.cardRow{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 3px solid green;
+
+}
+
+/* .col{
+    text-align: justify;
+    padding-left: 80px !important;
+    padding-right: 80px !important;
+} */
+
+.card-img {
+    max-width:500px;
+    max-height:300px;
+    width: auto;
+    height: auto;
+  }
