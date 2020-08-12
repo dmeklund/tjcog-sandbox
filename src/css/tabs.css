@@ -1,56 +1,23 @@
-.tab-wrapper {
-    max-height: 500px;
-    max-width: 1000px;
+.tabPanes .MuiTab-root {
+    text-transform: initial;
 }
 
-.tab-content {
-    border-left: 1px solid;
-    border-right: 1px solid;
-    border-bottom: 1px solid;
-    border-color: #dee2e6;
-    border-bottom-left-radius: .25rem;
-    border-bottom-right-radius: .25rem;
-    border-top-right-radius: .25rem;
-    min-height: 100px;
-    padding: 10px;
-}
-
-.nav-link {
-    border-color: #e9ecef !important;
-    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-    font-size: 0.875rem;
-    padding: 6px 24px !important;
-    line-height: 1.75;
-    letter-spacing: 0.02857em;
-    font-weight: 500;
-    color: #636363;
-}
-
-.nav-link.active {
-    border-color: #dee2e6 !important;
-    border-bottom-color: transparent !important;
-}
-
-.MuiTab-root {
-    text-transform: initial !important;
-}
-
-.MuiTabs-indicator {
+.tabPanes .MuiTabs-indicator {
     display: none;
 }
 
-.MuiButtonBase-root {
-    border: 1px solid #e9ecef !important;
-    border-top-left-radius: .25rem !important;
-    border-top-right-radius: .25rem !important;
+.tabPanes .MuiButtonBase-root {
+    border: 1px solid #e9ecef;
+    border-top-left-radius: .25rem;
+    border-top-right-radius: .25rem;
 }
 
-.Mui-selected {
-    border-bottom-color: white !important;
+.tabPanes .Mui-selected {
+    border-bottom-color: white;
 }
 
-button:focus {
-    outline: none !important;
+.tabPanes .MuiTabs-flexContainer button:focus {
+    outline: none;
 }
 
 .MuiBox-root {
@@ -64,20 +31,22 @@ button:focus {
     bottom: -1px;
 }
 
-.MuiTabScrollButton-root {
-    opacity: 1 !important;
-    z-index: 1;
-    background-color: white !important;
+.MuiTabs-root > .MuiTabScrollButton-root:nth-of-type(4) {
+    right: 0 !important;
 }
 
-.Mui-disabled {
-    opacity: 0 !important;
+.tabPanes .MuiTabScrollButton-root {
+    opacity: 1;
+    z-index: 1;
+    background-color: white;
+    position: absolute;
+    height: 100%;
+}
+
+.tabPanes .Mui-disabled {
+    opacity: 0;
     -webkit-transition: opacity .25s ease-in-out;
     -moz-transition: opacity .25s ease-in-out;
     -o-transition: opacity .25s ease-in-out;
     transition: opacity .25s ease-in-out;
-}
-
-.MuiTabs-scroller {
-    margin-left: -40px;
 }

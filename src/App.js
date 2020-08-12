@@ -4,16 +4,19 @@ import './App.css';
 import Layout from "./components/layout";
 import About from "./pages/about";
 import Housing from "./pages/housing101"
-import TabAccordionDemo from "./pages/tab-accordion-demo";
+import TabDemo from "./pages/tab-demo";
+import ControlledAccordions from "./pages/accordion-demo";
 
 function App() {
   return (
       <Layout>
-        <Router>
-            <Housing path="/"/>
-            <About path="/about"/>
-            <TabAccordionDemo path={"/tab-accordion-demo"}/>
-        </Router>
+          <br />
+          <Router>
+              <Housing path="/"/>
+              <About path="/about"/>
+              <ControlledAccordions path="/accordion-demo"/>
+              <TabDemo path="/tab-demo"/>
+          </Router>
       </Layout>
   );
 }
