@@ -54,7 +54,6 @@ export const WebMapView = (
                 }
             );
     });
-    // TODO: handle error, if set
     if (error) {
         return <div>Error loading map: {error.message}</div>
     } else if (!isLoaded) {
