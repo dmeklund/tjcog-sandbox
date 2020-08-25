@@ -8,9 +8,9 @@ export const WebMapView = (
     }
 ) => {
     const [error, setError] = useState(null);
+    const [isLoaded, setIsLoaded] = useState(false);
     const mapRef = useRef();
-    const mapname = 'DurhamLBAR_110519';
-    const metaurl = process.env.PUBLIC_URL + '/gis/' + mapname + '_meta.json';
+    const metaurl = process.env.PUBLIC_URL + '/gis/' + dataname + '_meta.json';
     const modules = [
         'esri/Map',
         'esri/views/MapView',
@@ -23,11 +23,13 @@ export const WebMapView = (
         Promise.all([fetch(metaurl).then(res => res.json()), loadModules(modules, options)])
             .then(
                 ([metadict, [ArcGISMap, MapView, GeoJSONLayer]]) => {
+                    setIsLoaded(true);
                     const map = new ArcGISMap({
                         basemap: basemap
                     });
                     // load the map view at the ref's DOM node
                     const [centerlat, centerlng] = metadict['center'];
+                    console.log(`${centerlat}, ${centerlng}`);
                     const view = new MapView({
                         container: mapRef.current,
                         map: map,
@@ -53,5 +55,11 @@ export const WebMapView = (
             );
     });
     // TODO: handle error, if set
-    return <div className="webmap" ref={mapRef}/>;
+    if (error) {
+        return <div>Error loading map: {error.message}</div>
+    } else if (!isLoaded) {
+        return <div>Loading...</div>
+    } else {
+        return <div className="webmap" ref={mapRef}/>;
+    }
 };
