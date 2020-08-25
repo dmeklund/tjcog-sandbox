@@ -1,9 +1,3 @@
-# See branch tgcog-rev0 for the sandbox
-
-For didactic purposes, master currently contains the raw output of `create-react-app`. 
-
-Please see the `tjcog-rev0` branch for the current TJCOG sandbox.
-
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
