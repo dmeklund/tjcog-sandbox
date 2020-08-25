@@ -1,94 +1,57 @@
-import React, { useEffect, useRef } from 'react';
-import { loadModules } from 'esri-loader';
+import React, {useEffect, useRef, useState} from 'react';
+import {loadModules} from 'esri-loader';
 
 export const WebMapView = (
     {
-        centerlat,
-        centerlng,
-        basemap='topo-vector'
+        dataname,
+        basemap = 'topo-vector'
     }
 ) => {
+    const [error, setError] = useState(null);
     const mapRef = useRef();
+    const mapname = 'DurhamLBAR_110519';
+    const metaurl = process.env.PUBLIC_URL + '/gis/' + mapname + '_meta.json';
+    const modules = [
+        'esri/Map',
+        'esri/views/MapView',
+        'esri/layers/GeoJSONLayer'
+    ];
+    const options = {css: true};
 
-    useEffect(
-        () => {
-            // lazy load the required ArcGIS API for JavaScript modules and CSS
-            const modules = [
-                'esri/Map',
-                'esri/views/MapView',
-                // 'esri/layers/FeatureLayer',
-                'esri/layers/GeoJSONLayer'
-            ];
-            const options = { css: true };
-            loadModules(modules, options)
-                .then(([ArcGISMap, MapView, GeoJSONLayer]) => {
+    useEffect(() => {
+        // lazy load the required ArcGIS API for JavaScript modules and CSS
+        Promise.all([fetch(metaurl).then(res => res.json()), loadModules(modules, options)])
+            .then(
+                ([metadict, [ArcGISMap, MapView, GeoJSONLayer]]) => {
                     const map = new ArcGISMap({
                         basemap: basemap
                     });
-
                     // load the map view at the ref's DOM node
+                    const [centerlat, centerlng] = metadict['center'];
                     const view = new MapView({
                         container: mapRef.current,
                         map: map,
                         center: [centerlat, centerlng], //[-78.8479, 35.97393],
                         zoom: 10
                     });
-
-                    const template = {
-                        title: "{PropName} ({PropAdd})",
-                        content: [
-                            {
-                                type: "fields",
-                                fieldInfos: [
-                                    {
-                                        fieldName: "TotAffUnit",
-                                        label: "Total Affordable Units",
-                                    },
-                                    {
-                                        fieldName: "AffType",
-                                        label: "Affordable Type",
-                                    },
-                                    {
-                                        fieldName: "ManName",
-                                        label: "ManName",
-                                    },
-                                    {
-                                        fieldName: "OwnName",
-                                        label: "Owner",
-                                    },
-                                    {
-                                        fieldName: "OwnType",
-                                        label: "Ownership Type",
-                                    },
-                                    {
-                                        fieldName: "FundStream",
-                                        label: "Funding Stream",
-                                    },
-                                    {
-                                        fieldName: "ConstDate",
-                                        label: "Construction Date"
-                                    }
-                                ]
-                            }
-                        ]
-                    };
+                    const template = metadict['template'];
                     const layer = new GeoJSONLayer({
-                        url: process.env.PUBLIC_URL + '/DurhamLBAR_110519.json',
-                            // "https://services3.arcgis.com/GVgbJbqm8hXASVYi/arcgis/rest/services/Trailheads/FeatureServer/0"
+                        url: process.env.PUBLIC_URL + '/gis/' + dataname + '.json',
                         popupTemplate: template
                     });
-
                     map.add(layer, 0);
-
                     return () => {
                         if (view) {
                             // destroy the map view
                             view.container = null;
                         }
                     };
-                });
-        }
-    );
-
-    return <div className="webmap" ref={mapRef} />;
+                },
+                (error) => {
+                    setError(error);
+                }
+            );
+    });
+    // TODO: handle error, if set
+    return <div className="webmap" ref={mapRef}/>;
 };
