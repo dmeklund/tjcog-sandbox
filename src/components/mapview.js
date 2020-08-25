@@ -19,7 +19,7 @@ export const WebMapView = (
     const options = {css: true};
 
     useEffect(() => {
-        // lazy load the required ArcGIS API for JavaScript modules and CSS
+        // lazy load the required ArcGIS components and metadata JSON
         Promise.all([fetch(metaurl).then(res => res.json()), loadModules(modules, options)])
             .then(
                 ([metadict, [ArcGISMap, MapView, GeoJSONLayer]]) => {
