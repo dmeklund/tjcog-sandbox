@@ -1,8 +1,7 @@
 import React, {Component} from "react";
-import ReactDOM from "react-dom";
+// import ReactDOM from "react-dom";
 import {Tabs as MaterialTabs, Tab as MaterialTab} from "@material-ui/core";
-import $ from "jquery";
-import * as PropTypes from "prop-types";
+// import $ from "jquery";
 import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
 import "../css/tabs.css";
@@ -27,57 +26,44 @@ function TabPanel(props) {
     );
 }
 
-TabPanel.propTypes = {
-    children: PropTypes.node,
-    index: PropTypes.any.isRequired,
-    value: PropTypes.any.isRequired,
-};
-
-function a11yProps(index) {
-    return {
-        id: `simple-tab-${index}`,
-        'aria-controls': `simple-tabpanel-${index}`,
-    };
-}
-
-export class TabContent extends Component
-{
-    //
-}
-
 export default class Tabs extends Component
 {
-    static Pane = TabContent;
+    static Pane = () => {};
 
-    state = {
-        tabValue: 0
-    };
+    state = {tabValue: 0};
 
-    handleChange = (event, newValue) => {
-        this.setState({tabValue: newValue});
-    };
+    handleChange = (event, newValue) => this.setState({tabValue: newValue});
 
     render() {
         return (
-            <div className="container-fluid">
+            <div className={this.props.className+" container-fluid"}>
+
                 <MaterialTabs
                     value={this.state.tabValue}
                     variant="scrollable"
                     scrollButtons="on"
                     onChange={this.handleChange}
-                    className={"tabPanes "+this.props.className}
+                    className={"tabPanes "+this.props.tabBarClassName}
                 >
                     {React.Children.map(this.props.children || null, (child, index) => {
-                        if (child.type === Tabs.Pane) {
-                            return <MaterialTab label={child.props.title} {...a11yProps(index)} />
-                        }
+                        return (child.type === Tabs.Pane) ? <MaterialTab
+                            label={child.props.title}
+                            className={child.props.tabClassName}
+                            onClick={child.props.onClick && child.props.onClick.bind(this)}
+                        /> : "";
                     })}
                 </MaterialTabs>
+
                 {React.Children.map(this.props.children || null, (child, index) => {
-                    if (child.type === Tabs.Pane) {
-                        return <TabPanel value={this.state.tabValue} index={index}>{child.props.children}</TabPanel>
-                    }
+                    let children = child.props.loadFrom ? child.props.loadFrom(index) : child.props.children;
+
+                    return (child.type === Tabs.Pane) ? <TabPanel
+                        value={this.state.tabValue}
+                        index={index}
+                        className={child.props.className}
+                    >{children}</TabPanel> : "";
                 })}
+
             </div>
         );
     }

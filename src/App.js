@@ -6,6 +6,7 @@ import About from "./pages/about";
 import Housing from "./pages/housing101"
 import TabDemo from "./pages/tab-demo";
 import ControlledAccordions from "./pages/accordion-demo";
+import TabDemo2 from "./pages/tab-demo2";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
               <About path="/about"/>
               <ControlledAccordions path="/accordion-demo"/>
               <TabDemo path="/tab-demo"/>
+              <TabDemo2 path="/tab-demo2"/>
           </Router>
       </Layout>
   );
