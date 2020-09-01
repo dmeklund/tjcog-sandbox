@@ -1,10 +1,10 @@
-# See branch tgcog-rev0 for the sandbox
+# Generating GIS JSON Files
 
-For didactic purposes, master currently contains the raw output of `create-react-app`. 
+GIS data is stored in the GeoJSON format. Given an ESRI shapefile, you can convert it into GeoJSON format with the following command:
 
-Please see the `tjcog-rev0` branch for the current TJCOG sandbox.
+`ogr2ogr -f GeoJSON -t_srs crs:84 JohnstonLBAR_110519.json JohnstonLBAR_110519.shp
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+`ogr2ogr` is included in the GDAL (Geospatial Data Abstraction Library) package.
 
 ## Available Scripts
 

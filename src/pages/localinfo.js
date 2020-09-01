@@ -4,7 +4,7 @@ import {WebMapView} from "../components/mapview"
 
 const LocalInfo = () => (
     <Container>
-        <WebMapView />
+        <WebMapView dataname="DurhamLBAR_110519"/>
     </Container>
 )
 
