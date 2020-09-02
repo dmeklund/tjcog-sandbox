@@ -1,0 +1,41 @@
+{
+  "center": [-78.8479, 35.97393],
+  "template": {
+    "title": "{PropName} ({PropAdd})",
+    "content": [
+      {
+        "type": "fields",
+        "fieldInfos": [
+          {
+            "fieldName": "TotAffUnit",
+            "label": "Total Affordable Units"
+          },
+          {
+            "fieldName": "AffType",
+            "label": "Affordable Type"
+          },
+          {
+            "fieldName": "ManName",
+            "label": "ManName"
+          },
+          {
+            "fieldName": "OwnName",
+            "label": "Owner"
+          },
+          {
+            "fieldName": "OwnType",
+            "label": "Ownership Type"
+          },
+          {
+            "fieldName": "FundStream",
+            "label": "Funding Stream"
+          },
+          {
+            "fieldName": "ConstDate",
+            "label": "Construction Date"
+          }
+        ]
+      }
+    ]
+  }
+}
