@@ -1,10 +1,20 @@
+# Resources
+
+Latest wireframes: https://drive.google.com/file/d/11E938iN4gxTgGaYpIk32mbVQVoOk9nZl/view?usp=sharing
+
+Google drive (read-only link, request to be added if write access is needed): https://drive.google.com/drive/folders/1L-IY7Tfehx4wDcOX87VfWJGJYvJRe0bX?usp=sharing
+
+Sample GIS data: https://drive.google.com/file/d/17T1Q14c87z508LDFTkOPin6I0nhqJ9S1/view?usp=sharing
+
 # Generating GIS JSON Files
 
 GIS data is stored in the GeoJSON format. Given an ESRI shapefile, you can convert it into GeoJSON format with the following command:
 
-`ogr2ogr -f GeoJSON -t_srs crs:84 JohnstonLBAR_110519.json JohnstonLBAR_110519.shp
+`ogr2ogr -f GeoJSON -t_srs crs:84 JohnstonLBAR_110519.json JohnstonLBAR_110519.shp`
 
 `ogr2ogr` is included in the GDAL (Geospatial Data Abstraction Library) package.
+
+# Generic create-react-app Instructions
 
 ## Available Scripts
 
