@@ -6,6 +6,8 @@ Google drive (read-only link, request to be added if write access is needed): ht
 
 Sample GIS data: https://drive.google.com/file/d/17T1Q14c87z508LDFTkOPin6I0nhqJ9S1/view?usp=sharing
 
+The `develop` branch is automatically deployed to https://tjcog-sandbox.herokuapp.com/
+
 # Generating GIS JSON Files
 
 GIS data is stored in the GeoJSON format. Given an ESRI shapefile, you can convert it into GeoJSON format with the following command:
