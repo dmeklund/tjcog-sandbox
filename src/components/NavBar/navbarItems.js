@@ -3,11 +3,7 @@ import React from "react";
 import Nav from "react-bootstrap/Nav";
 
 export const NavItems = (props) => (
-  <Navbar
-    bg="primary"
-    {...props}
-    style={{ fontFamily: "Montserrat, system-ui" }}
-  >
+  <Navbar bg="primary" {...props}>
     <NavItem href="/">Affordable Housing 101</NavItem>
     <NavItem href="/bestpractices">Best Practices</NavItem>
     <NavItem href="/local">Find My Local Info</NavItem>

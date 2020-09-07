@@ -24,7 +24,10 @@ export const NavbarMenu = () => {
           style={{ zIndex: 20 }}
         >
           {isMenuOpen && (
-            <NavItems className="flex-column" style={{ width: "40vw" }} />
+            <NavItems
+              className="flex-column"
+              style={{ width: "40vw", minWidth: "200px" }}
+            />
           )}
         </div>
       </div>
