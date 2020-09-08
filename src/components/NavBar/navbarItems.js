@@ -1,24 +1,32 @@
-import Navbar from "react-bootstrap/Navbar";
 import React from "react";
+import { Link } from "@reach/router";
+import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 
 export const NavItems = (props) => (
   <Navbar bg="primary" {...props}>
-    <NavItem href="/">Affordable Housing 101</NavItem>
-    <NavItem href="/bestpractices">Best Practices</NavItem>
-    <NavItem href="/local">Find My Local Info</NavItem>
-    <NavItem href="/strategies">Terms and Strategies</NavItem>
-    <NavItem href="/resources">Resources</NavItem>
-    <NavItem href="/casestudies">Case Studies</NavItem>
-    <NavItem href="/profiles">Resident Profiles</NavItem>
-    <NavItem href="/FAQ">FAQ</NavItem>
+    <NavItem to="/">Affordable Housing 101</NavItem>
+    <NavItem to="/triangle-regional-data">Triangle Regional Data</NavItem>
+    <NavItem to="/strategies">Best Practices & Strategies</NavItem>
+    <NavItem to="/resources">Resources</NavItem>
+    <NavItem to="/glossary">Glossary of Terms</NavItem>
+    <NavItem to="/faq">FAQ</NavItem>
+
+    {/* These items are removed on small screens, so we add them to the dropdown menu */}
+    <NavItem to="/about" className="d-flex d-md-none">
+      About Us
+    </NavItem>
+    <NavItem to="/contact" className="d-flex d-md-none">
+      Contact Us
+    </NavItem>
   </Navbar>
 );
 
-const NavItem = ({ children, href }) => (
-  <Nav.Item className="m-auto text-center">
-    <Nav.Link href={href} className="text-white font-weight-bold">
-      {children}
-    </Nav.Link>
-  </Nav.Item>
-);
+const NavItem = (props) => {
+  const { className, ...rest } = props;
+  return (
+    <Nav.Item className={`m-auto text-center ${className || ""}`}>
+      <Link className="text-white font-weight-bold" {...rest} />
+    </Nav.Item>
+  );
+};
