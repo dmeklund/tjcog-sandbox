@@ -1,0 +1,10 @@
+// Colors and fonts are taken from https://www.tjcog.org/ for site consistency
+$theme-colors: (
+  "primary": #2e3d8f,
+  "success": #00a367,
+);
+
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700;800&display=swap");
+$font-family-sans-serif: "Open Sans", Arial, sans-serif;
+
+@import "~bootstrap/scss/bootstrap";

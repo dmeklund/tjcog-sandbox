@@ -1,12 +1,11 @@
 import React from "react";
-import NavBar from "./navbar";
-import {Container} from "react-bootstrap";
+import NavBar from "./NavBar/navbar";
 
-const Layout = ({children}) => (
-    <Container fluid>
-        <NavBar/>
-        {children}
-    </Container>
+const Layout = ({ children }) => (
+  <>
+    <NavBar />
+    {children}
+  </>
 );
 
 export default Layout;
