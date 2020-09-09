@@ -1,0 +1,52 @@
+.tabPanes .MuiTab-root {
+    text-transform: initial;
+}
+
+.tabPanes .MuiTabs-indicator {
+    display: none;
+}
+
+.tabPanes .MuiButtonBase-root {
+    border: 1px solid #e9ecef;
+    border-top-left-radius: .25rem;
+    border-top-right-radius: .25rem;
+}
+
+.tabPanes .Mui-selected {
+    border-bottom-color: white;
+}
+
+.tabPanes .MuiTabs-flexContainer button:focus {
+    outline: none;
+}
+
+.MuiBox-root {
+    border: 1px solid #e9ecef;
+    /*border-top: none;*/
+    min-height: 100px;
+}
+
+.MuiTabs-root {
+    position: relative;
+    bottom: -1px;
+}
+
+.MuiTabs-root > .MuiTabScrollButton-root:nth-of-type(4) {
+    right: 0 !important;
+}
+
+.tabPanes .MuiTabScrollButton-root {
+    opacity: 1;
+    z-index: 1;
+    background-color: white;
+    position: absolute;
+    height: 100%;
+}
+
+.tabPanes .Mui-disabled {
+    opacity: 0;
+    -webkit-transition: opacity .25s ease-in-out;
+    -moz-transition: opacity .25s ease-in-out;
+    -o-transition: opacity .25s ease-in-out;
+    transition: opacity .25s ease-in-out;
+}

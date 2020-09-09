@@ -3,14 +3,6 @@ import { Router } from "@reach/router";
 import "./App.css";
 import Layout from "./components/layout";
 import About from "./pages/about";
-import Housing from "./pages/housing101";
-import LocalInfo from "./pages/localinfo";
-import Contact from "./pages/contact";
-import TriangleRegionalData from "./pages/triangleRegionalData";
-import Strategies from "./pages/strategies";
-import Resources from "./pages/resources";
-import Glossary from "./pages/glossary";
-import FAQ from "./pages/faq";
 
 function App() {
   return (
