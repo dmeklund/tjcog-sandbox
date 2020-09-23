@@ -1,0 +1,16 @@
+.accordion .MuiAccordion-root.Mui-expanded {
+    margin: 1px 0;
+}
+
+.accordion .MuiAccordionSummary-root.Mui-expanded {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.accordion .MuiCollapse-entered {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.accordion .MuiPaper-elevation1 {
+    box-shadow: none;
+}
+
