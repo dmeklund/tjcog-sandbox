@@ -66,7 +66,7 @@ export default class Tabs extends Component
                     return (child.type === Tabs.Pane) ? <TabPanel
                         value={this.state.tabValue}
                         index={index}
-                        className={child.props.className ? child.props.className : ''}
+                        className={ child.props.className ? child.props.className : ''}
                     >{children}</TabPanel> : "";
                 })}
 

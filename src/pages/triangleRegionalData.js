@@ -59,12 +59,12 @@ const TriangleRegionalData = () => (
         <Tabs className="style2">
             <Tabs.Pane title="Demographics">
                 <Row>
-                    <Col>
+                    <div className="col-md-6">
                         {MapControls}
-                    </Col>
-                    <Col style={{maxHeight: "300px", overflow: "auto"}}>
+                    </div>
+                    <div className="col-md-6">
                         <LocalInfo />
-                    </Col>
+                    </div>
                 </Row>
             </Tabs.Pane>
             <Tabs.Pane title="Housing Stock">

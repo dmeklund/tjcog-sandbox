@@ -91,3 +91,10 @@
     border-top-left-radius: 0;
     border-top-right-radius: 0;
 }
+
+@media (max-width:768px){
+    .MuiBox-root>.row>.col-md-6 {
+        height: 300px;
+        overflow: auto;
+    }
+}
