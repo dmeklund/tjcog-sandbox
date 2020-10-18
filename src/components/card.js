@@ -3,9 +3,7 @@ import {Container} from "react-bootstrap";
 import "./card.css"
 import "./cardCol.css"
 
-export const CardCol =  ({children}) => (
-    <div class="card-content">{children}</div>
-);
+export const CardCol = props => <div className="card-content col-md-6">{props.children}</div>;
 
 export default class Card extends Component {
     static Col = CardCol;
@@ -13,9 +11,9 @@ export default class Card extends Component {
     render() {
         return (
             <Container className="card-container">
-                <div class="card">
-                    <div class="card-body">
-                        {this.props.children}
+                <div className="card">
+                    <div className="card-body row">
+                        {React.Children.map(this.props.children, child => child.type === Card.Col ? child : "")}
                     </div>
                 </div>
             </Container>

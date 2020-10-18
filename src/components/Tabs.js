@@ -19,7 +19,7 @@ function TabPanel(props) {
         >
             {value === index && (
                 <Box p={3}>
-                    <Typography>{children}</Typography>
+                    {children}
                 </Box>
             )}
         </div>
@@ -29,6 +29,12 @@ function TabPanel(props) {
 export default class Tabs extends Component
 {
     static Pane = () => {};
+
+    static defaultProps = {
+        className: '',
+        tabBarClassName: '',
+        tabClassName: ''
+    };
 
     state = {tabValue: 0};
 
@@ -60,7 +66,7 @@ export default class Tabs extends Component
                     return (child.type === Tabs.Pane) ? <TabPanel
                         value={this.state.tabValue}
                         index={index}
-                        className={child.props.className}
+                        className={ child.props.className ? child.props.className : ''}
                     >{children}</TabPanel> : "";
                 })}
 

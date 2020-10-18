@@ -25,12 +25,14 @@ export default function ControlledAccordions() {
     const classes = useStyles();
     const [expanded, setExpanded] = React.useState(false);
 
-    const handleChange = (panel) => (event, isExpanded) => {
-        setExpanded(isExpanded ? panel : false);
+    const handleChange = (panel) => {
+        return (event, isExpanded) => {
+            setExpanded(isExpanded ? panel : false);
+        }
     };
 
     return (
-        <div className={classes.root}>
+            <div className={classes.root}>
             <Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
                 <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}

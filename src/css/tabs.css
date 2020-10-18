@@ -41,6 +41,7 @@
     background-color: white;
     position: absolute;
     height: 100%;
+    max-height: 48px;
 }
 
 .tabPanes .Mui-disabled {
@@ -49,4 +50,58 @@
     -moz-transition: opacity .25s ease-in-out;
     -o-transition: opacity .25s ease-in-out;
     transition: opacity .25s ease-in-out;
+}
+
+.style1 .tabPanes .MuiTabs-indicator {
+    display: initial;
+}
+
+.style1 .tabPanes .Mui-selected {
+    border-bottom-color: initial;
+}
+
+.style1 .tabPanes .MuiButtonBase-root {
+    border: none;
+}
+
+.style1 .MuiTabs-root {
+    padding-bottom: 15px;
+}
+
+.style1 .tabPanes .MuiTabScrollButton-root {
+    border-right: 1px solid #e9ecef;
+}
+
+.style1 .MuiTabs-root > .MuiTabScrollButton-root:nth-of-type(4) {
+    border-left: 1px solid #e9ecef;
+    border-right: 1px solid white;
+}
+
+.style2 .MuiTabs-root {
+    padding-bottom: 15px;
+}
+
+.style2 .tabPanes .Mui-selected {
+    border-bottom-color: #e9ecef;
+    background-color: #2e3d8f;
+    color: white;
+}
+
+.style2 .tabPanes .MuiButtonBase-root {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+@media (min-width:767px) {
+    .MuiBox-root > .row {
+        height: 500px;
+        overflow: auto;
+    }
+}
+
+@media (max-width:768px) {
+    .MuiBox-root>.row>[class^="col"] {
+        height: 300px;
+        overflow: auto;
+    }
 }
