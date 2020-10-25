@@ -75,12 +75,12 @@ export default class TriangleRegionalData extends Component {
             <Tabs className="style2">
                 <Tabs.Pane title="Demographics">
                     <Row>
-                        <div className="col-md-6">
+                        <Col md="auto">
                             <MapControls handler={this.mapHandler.bind(this)} />
-                        </div>
-                        <div className="col-md-6">
+                        </Col>
+                        <Col>
                             <LocalInfo dataname={this.state.mapSelection} />
-                        </div>
+                        </Col>
                     </Row>
                 </Tabs.Pane>
                 <Tabs.Pane title="Housing Stock">
