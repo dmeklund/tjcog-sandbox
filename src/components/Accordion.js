@@ -32,9 +32,9 @@ export default class Accordion extends Component
 
     static classes = styles();
 
-    handleChange(panel) {
+    handleChange(panelName, handler) {
         return (event) => {
-            this.setState({expanded: this.state.expanded === panel ? false : panel});
+            this.setState({expanded: this.state.expanded === panelName ? false : panelName}, handler);
         };
     }
 
@@ -46,11 +46,12 @@ export default class Accordion extends Component
                 {React.Children.map(this.props.children || null, (child, index) => {
                     let children = child.props.loadFrom ? child.props.loadFrom(index) : child.props.children;
                     let name = "panel"+index;
+                    let handler = child.props.onClick ? child.props.onClick : this.props.onChange;
+                    handler = handler ? handler : () => {};
 
                     return (child.type === Accordion.Pane) ? <MaterialAccordion
                         expanded={this.state.expanded === name}
-                        onChange={this.handleChange(name)}
-                        onClick={child.props.onClick && child.props.onClick.bind(this)}
+                        onChange={this.handleChange(name, () => handler(child, index))}
                     >
                         <AccordionSummary
                             expandIcon={<ExpandMoreIcon/>}

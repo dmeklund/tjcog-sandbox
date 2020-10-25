@@ -2,9 +2,9 @@ import React from "react";
 import Container from "react-bootstrap/Container";
 import {WebMapView} from "../components/mapview"
 
-const LocalInfo = () => (
+const LocalInfo = (props) => (
     <Container>
-        <WebMapView dataname="DurhamLBAR_110519"/>
+        <WebMapView dataname={props.dataname} />
     </Container>
 )
 
