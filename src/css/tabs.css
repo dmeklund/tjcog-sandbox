@@ -94,14 +94,14 @@
 
 @media (min-width:767px) {
     .MuiBox-root > .row {
-        height: 500px;
+        min-height: 500px;
         overflow: auto;
     }
 }
 
 @media (max-width:768px) {
     .MuiBox-root>.row>[class^="col"] {
-        height: 300px;
+        min-height: 300px;
         overflow: auto;
     }
 }
