@@ -8,18 +8,24 @@ import Accordion from "../components/Accordion";
 
 const MapControls = (props) => (
     <Accordion onChange={props.handler}>
-        <Accordion.Pane title="Households">
-            <p>Household data</p>
+        <Accordion.Pane title="Durham LBAR" datasetId="DurhamLBAR_110519">
+            Durham LBAR
         </Accordion.Pane>
-        <Accordion.Pane title="Population Information">
-            <p>Population data</p>
+        <Accordion.Pane title="Johnston LBAR" datasetId="JohnstonLBAR_110519">
+            Johnston LBAR
         </Accordion.Pane>
-        <Accordion.Pane title="Labor Market">
-            <p>Labor data</p>
-        </Accordion.Pane>
-        <Accordion.Pane title="Income & Poverty Information">
-            <p>Income data</p>
-        </Accordion.Pane>
+        {/*<Accordion.Pane title="Households">*/}
+        {/*    <p>Household data</p>*/}
+        {/*</Accordion.Pane>*/}
+        {/*<Accordion.Pane title="Population Information">*/}
+        {/*    <p>Population data</p>*/}
+        {/*</Accordion.Pane>*/}
+        {/*<Accordion.Pane title="Labor Market">*/}
+        {/*    <p>Labor data</p>*/}
+        {/*</Accordion.Pane>*/}
+        {/*<Accordion.Pane title="Income & Poverty Information">*/}
+        {/*    <p>Income data</p>*/}
+        {/*</Accordion.Pane>*/}
     </Accordion>
 );
 
@@ -30,11 +36,7 @@ export default class TriangleRegionalData extends Component {
     }
 
     mapHandler(element, index) {
-        if (!(index % 2)) {
-            this.setState({mapSelection: "JohnstonLBAR_110519"});
-        } else {
-            this.setState({mapSelection: "DurhamLBAR_110519"});
-        }
+        this.setState({mapSelection: element.props.datasetId});
     }
 
     render() {
@@ -73,7 +75,7 @@ export default class TriangleRegionalData extends Component {
             <br/>
             <br/>
             <Tabs className="style2">
-                <Tabs.Pane title="Demographics">
+                <Tabs.Pane title="Affordable Housing Inventories">
                     <Row>
                         <Col md="auto">
                             <MapControls handler={this.mapHandler.bind(this)} />
@@ -82,6 +84,9 @@ export default class TriangleRegionalData extends Component {
                             <LocalInfo dataname={this.state.mapSelection} />
                         </Col>
                     </Row>
+                </Tabs.Pane>
+                <Tabs.Pane title="Demographics">
+                    Demographics
                 </Tabs.Pane>
                 <Tabs.Pane title="Housing Stock">
                     Housing Stock

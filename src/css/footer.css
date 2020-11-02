@@ -1,0 +1,58 @@
+.page-footer {
+    margin-top: 30px;
+    background: #55565a;
+    padding: 30px;
+    color: white;
+}
+
+.wrapper, .main-menu, .views-events_calendar-upcoming_events, .block-1 .newsletter-wrapper, .views-news-news_list_block, .region-home-feature-middle .views-popular_resources-block_1 {
+    max-width: 1600px;
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: 16px;
+    padding-left: 16px;
+}
+
+.page-footer .menu-name-menu-footer-menu .menu a {
+    font-size: 1.25em;
+    text-decoration: none;
+}
+
+.page-footer .menu-name-menu-footer-menu .menu li {
+    list-style: none;
+}
+
+.page-footer .wrapper, .page-footer .main-menu, .page-footer .views-events_calendar-upcoming_events, .page-footer .block-1 .newsletter-wrapper, .block-1 .page-footer .newsletter-wrapper, .page-footer .views-news-news_list_block, .page-footer .region-home-feature-middle .views-popular_resources-block_1, .region-home-feature-middle .page-footer .views-popular_resources-block_1 {
+    display: flex;
+    justify-content: space-between;
+}
+
+.region-social-media li {
+    display: inline-block;
+    margin-right: 1.3em;
+}
+
+.region-social-media [href] {
+    color: white;
+    font-size: 0;
+    text-decoration: none;
+}
+
+.page-footer .menu-name-menu-footer-menu .menu {
+    text-align: right;
+    padding: 0;
+    margin: 0;
+}
+
+.page-footer .menu-name-menu-footer-menu .menu li {
+    list-style: none;
+}
+
+.page-footer .menu-name-menu-footer-menu .menu a {
+    font-size: 1.25em;
+    text-decoration: none;
+}
+
+.page-footer a {
+    color: white;
+}

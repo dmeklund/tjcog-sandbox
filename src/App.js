@@ -11,6 +11,7 @@ import Glossary from "./pages/glossary";
 import FAQ from "./pages/faq";
 import Contact from "./pages/contact";
 import Housing from "./pages/housing101"
+import Footer from "./components/footer";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
         <About path="/about" />
         <Contact path="/contact" />
       </Router>
+      <Footer/>
     </Layout>
   );
 }
