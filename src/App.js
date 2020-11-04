@@ -1,5 +1,6 @@
 import React from "react";
-import { Router } from "@reach/router";
+// import { Router } from "@reach/router";
+import {HashRouter, Link, Route, Switch} from 'react-router-dom';
 import "./App.css";
 import Layout from "./components/layout";
 import About from "./pages/about";
@@ -10,24 +11,26 @@ import Resources from "./pages/resources";
 import Glossary from "./pages/glossary";
 import FAQ from "./pages/faq";
 import Contact from "./pages/contact";
-import Housing from "./pages/housing101"
+import Housing from "./pages/housing101";
 import Footer from "./components/footer";
 
 function App() {
   return (
     <Layout>
-      <Router>
-        <Housing path="/" />
-        <LocalInfo path="/local" />
-        <TriangleRegionalData path="/triangle-regional-data" />
-        <Strategies path="/strategies" />
-        <Resources path="/resources" />
-        <Glossary path="/glossary" />
-        <FAQ path="/faq" />
-        <About path="/about" />
-        <Contact path="/contact" />
-      </Router>
-      <Footer/>
+      <HashRouter>
+        <Switch>
+          <Route exact path="/" component={ Housing } />
+          <Route exact path="/triangle-regional-data" component={ TriangleRegionalData } />
+          <Route exact path="/local" component={ LocalInfo } />
+          <Route exact path="/strategies" component={ Strategies } />
+          <Route exact path="/resources" component={ Resources } />
+          <Route exact path="/glossary" component={ Glossary } />
+          <Route exact path="/faq" component={ FAQ } />
+          <Route exact path="/about" component={ About } />
+          <Route exact path="/contact" component={ Contact } />
+        </Switch>
+      </HashRouter>
+      <Footer />
     </Layout>
   );
 }
