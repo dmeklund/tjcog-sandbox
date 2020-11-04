@@ -1,9 +1,11 @@
 import React from "react";
-import { Link } from "@reach/router";
+// import { Link } from "@reach/router";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
+import {HashRouter, Link, Route, Switch} from 'react-router-dom';
 
 export const NavItems = (props) => (
+    <HashRouter>
   <Navbar bg="primary" {...props}>
     <NavItem to="/">Affordable Housing 101</NavItem>
     <NavItem to="/triangle-regional-data">Triangle Regional Data</NavItem>
@@ -20,6 +22,7 @@ export const NavItems = (props) => (
       Contact Us
     </NavItem>
   </Navbar>
+    </HashRouter>
 );
 
 const NavItem = (props) => {
